@@ -82,3 +82,97 @@ Data structures and algorithm Implementation, From the most basic data structure
 
 DSA-Comprehensive-Implementation
 Data structures and algorithm Implementation, From the most basic data structures likes lists and tuples, to More complex and advanced data structures like Trees and graphs
+
+## Dictionaries
+#### Overview:
+- Dictionaries in python are unordered collections of items.
+- Each item in a dictionary is a key-pair value.
+- Dictionaries are mutable.
+- Dictionaries are indexed by keys, which can be of any immutable type(e.g., strings, numbers, tuples)
+
+#### Creating Dictionaries:
+- Dictionaries can be created using curly braces "{}" with key-pairs, or using the "dict()" constructor.
+  ~~~
+  # Using curly braces
+  my_dict = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York"
+  }
+
+  # Using dict() constructor
+  my_dict = dict(name="Alice", age=25, city="New York")
+  ~~~
+
+#### Accessing Values.
+  - Values are accessed using their keys.
+  ~~~
+  print(my_dict["name"])
+  ~~~
+  - Accessing a non-existent key raises a KeyError
+  - Use the get() method to safely access values with a default return value
+  ~~~
+  print(my_dict.get("country", "Unknown"))  # Output: Unknown
+  ~~~
+
+#### Adding and Modifying Entries
+ - Add a new key-value pair or update the value of an existing key by assigning a value to the key.
+  ~~~
+  my_dict["email"] = "alice@example.com"  # Adding
+  my_dict["age"] = 26  # Modifying
+  ~~~
+#### Removing Entries
+- Use "del" statement or pop() method to remove items.
+  ~~~
+  del my_dict["city"]  # Using del statement
+
+  email = my_dict.pop("email")  # Using pop() method, returns the value
+  ~~~
+- Use "popitem()" to remove and return the last inserted key-pair value.
+- Use "clear" to remove all items from the dictionary.
+
+
+##### Note that we cannot change/modify a dictionary while Iterating over it. Instead, Identify the key, then remove it.
+
+### Dictionary Methods:
+    - keys() - Returns a view object of all keys in the dictionary.
+    - values() - Returns a view object of all values in the dictionary.
+    - items() - Returns a view Object of all key-value pairs in the dictionary.
+    - update() - Updates the dictionary with key-value pairs from another dictionary or iterable of key-value pairs.
+    - setdefault() - Returns the value of a key if it is in the dictionary; if not, inserts the key with a specified value.
+
+### Dictionaly Comprehensions
+- Create dictionaries using a syntax similar to list comprehensions.
+  ~~~
+  squares = {x: x*x for x in range(6)}
+  # squares is {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+  ~~~
+
+
+### Iterating Over Dictionaries
+- Iterate over keys, values, or key-value pairs.
+  ~~~
+  for key in my_dict:
+    print(key)  # Iterate over keys
+
+  for value in my_dict.values():
+    print(value)  # Iterate over values
+
+  for key, value in my_dict.items():
+    print(key, value)  # Iterate over key-value pairs
+  ~~~
+
+### Dictionary Characteristics
+- Unordered - As of Python 3.7, dictionaries maintain insertion order as an implementation detail. From Python 3.8 onwards, this became a language feature.
+- Keys Must Be Immutable: Keys must be of an immutable type(eg. strings, numbers, tuples)
+- Keys Must Be Unique - Assigning a new value to an existing key will overwrite the old value.
+
+### Common Use Cases
+##### Mapping
+- Associating keys with values, like an address book where names are keys and addresses are values.
+
+##### Counters
+- Counting occurances of items, such as counting the frequency of words in a text.
+
+##### Grouping
+- Grouping items by a common keys, like organizing a list of students by their grades.
