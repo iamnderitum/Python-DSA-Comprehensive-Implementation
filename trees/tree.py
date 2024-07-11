@@ -1,8 +1,9 @@
 from node import Node
 
 class Tree:
-    def __init__(self, root) -> None:
+    def __init__(self, root, name) -> None:
         self.root = root
+        self.name = name
 
     def _nodeToChar(self, n, spacing):
         if n is None:
@@ -53,7 +54,75 @@ class Tree:
     
     def isBalanced(self):
         return self.root.isBalanced()
-tree = Tree(Node(50))
+
+def rotateRight(root):
+    pivot = root.left
+    reattachNode = pivot.right
+    root.left = reattachNode
+    pivot.right = root
+    return pivot
+
+def rotateLeft(root):
+    pivot = root.right
+    reattachNode = pivot.left
+    root.right = reattachNode
+    pivot.left = root
+    return pivot
+
+
+unbalancedLeftLeft = Tree(Node(30), "UNBALANCED LEFT LEFT")
+unbalancedLeftLeft.root.left = Node(20)
+unbalancedLeftLeft.root.left.right = Node(21)
+unbalancedLeftLeft.root.left.left = Node(10)
+unbalancedLeftLeft.root.left.left.left = Node(9)
+unbalancedLeftLeft.root.left.left.right = Node(11)
+unbalancedLeftLeft.printTree()
+
+unbalancedLeftLeft.root = rotateRight(unbalancedLeftLeft.root)
+
+unbalancedLeftLeft.printTree()
+
+unbalancedRightRight = Tree(Node(10), "UNBALANCED RIGHT RIGHT")
+unbalancedRightRight.root.right = Node(20)
+unbalancedRightRight.root.right.left = Node(19)
+unbalancedRightRight.root.right.right = Node(30)
+unbalancedRightRight.root.right.right.left = Node(29)
+unbalancedRightRight.root.right.right.right = Node(31)
+unbalancedRightRight.printTree()
+
+unbalancedRightRight.root = rotateLeft(unbalancedRightRight.root)
+
+unbalancedRightRight.printTree()
+
+unbalancedLeftRight = Tree(Node(30), "UNBALANCED LEFT RIGHT")
+unbalancedLeftRight.root.right = Node(31)
+unbalancedLeftRight.root.left = Node(10)
+unbalancedLeftRight.root.left.right = Node(20)
+unbalancedLeftRight.root.left.left = Node(9)
+unbalancedLeftRight.root.left.right.left = Node(19)
+unbalancedLeftRight.root.left.right.right = Node(21)
+unbalancedLeftRight.printTree()
+
+unbalancedLeftRight.root.left = rotateLeft(unbalancedLeftRight.root.left)
+unbalancedLeftRight.root = rotateRight(unbalancedLeftRight.root)
+
+
+unbalancedLeftRight.printTree()
+
+unbalancedRightLeft = Tree(Node(30), "UNBALANCED RIGHT LEFT")
+unbalancedRightLeft.root.left = Node(31)
+unbalancedRightLeft.root.right = Node(10)
+unbalancedRightLeft.root.right.left = Node(20)
+unbalancedRightLeft.root.right.right = Node(9)
+unbalancedRightLeft.root.right.left.right = Node(19)
+unbalancedRightLeft.root.right.left.left = Node(21)
+unbalancedRightLeft.printTree()
+
+unbalancedRightLeft.root.right = rotateRight(unbalancedRightLeft.root.right)
+unbalancedRightLeft.root = rotateLeft(unbalancedRightLeft.root)
+unbalancedRightLeft.printTree()
+"""
+#tree = Tree(Node(50))
 
 tree.root.left = Node(25)
 tree.root.right = Node(75)
@@ -62,14 +131,13 @@ tree.root.left.right = Node(35)
 tree.root.left.right.left = Node(30)
 #tree.root.left.right.right = Node(42)
 tree.root.left.left.left = Node(5)
-tree.root.left.left.left.left = Node(3)
 #tree.root.left.left.right=Node(13)
 #tree.root.left.left.left.left=Node(2)
 
 print(tree.height())
 print(tree.getNodesAtDepth(4))
 tree.printTree()
-"""
+
 tree.add(15)
 tree.add(85)
 tree.printTree()
