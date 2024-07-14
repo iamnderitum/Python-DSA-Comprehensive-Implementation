@@ -15,6 +15,7 @@ Properties of Selection Sort:
 """
 def selectionSort(array):
     n = len(array)
+    print("Length of Array:", n)
     for ind in range(n):
         min_index = ind
         for j in range(ind + 1, n):
@@ -25,4 +26,6 @@ def selectionSort(array):
 
     return array
 
-print(selectionSort([4,2,6,5,1,3]))
+array = [4,2,6,5,1,3]
+print("Original array:",array)
+print("Sorted Array:",selectionSort(array))

@@ -34,7 +34,7 @@
 ##### 🛠️ 🗜️ Implementation
     1. Start with the first element as the minimum.
     2. Compare this element with the rest of the elements to find the smallest element.
-    3. swap the smallest element with the first elemt.
+    3. swap the smallest element with the first element.
     4. Move the boundary of the sorted and unsorted regions by one element to the right
     5. Repeat setps 1 - 4 for the remaining unsorted elements.
 

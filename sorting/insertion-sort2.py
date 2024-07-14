@@ -33,5 +33,7 @@ def insertionSort(array) -> Dict:
             j = j - 1
         array[j + 1] = key
     return array
+array = [4,2,6,5,1,3]
+print("Original array: ",array)
+print("Sorted List: ",insertionSort(array))
 
-print(insertionSort([4,2,6,5,1,3]))
