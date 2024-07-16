@@ -22,8 +22,8 @@
         - Best-Case - 0(n)
         - Average-case - 0(n^2)
 """
-from typing import Dict ,List
-def insertionSort(array) -> Dict:
+
+def insertionSort(array):
     n = len(array)
     for i in range(1, n):
         key = array[i]
@@ -33,7 +33,10 @@ def insertionSort(array) -> Dict:
             j = j - 1
         array[j + 1] = key
     return array
-array = [4,2,6,5,1,3]
-print("Original array: ",array)
-print("Sorted List: ",insertionSort(array))
+
+
+#array = [4,2,6,5,1,3]
+array = [(4, 'a'), (3, 'b'), (4, 'c'), (2, 'd'), (4, 'e'), (3, 'f')]
+# print("Original array: ",array)
+print("Sorted List: ", insertionSort(array))
 

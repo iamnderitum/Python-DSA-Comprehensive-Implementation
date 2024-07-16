@@ -26,6 +26,7 @@ def selectionSort(array):
 
     return array
 
-array = [4,2,6,5,1,3]
-print("Original array:",array)
-print("Sorted Array:",selectionSort(array))
+
+my_array = [(4, 'a'), (3, 'b'), (4, 'c'), (2, 'd'), (4, 'e'), (3, 'f')]
+# print("Original array:", my_array)
+print("Sorted Array:", selectionSort(my_array))
