@@ -44,7 +44,7 @@ def measure_45_minutes():
         time_elapsed += rope2.burn(15)  # Rope2 burns out in 15 more minutes
     
     return time_elapsed
-
+ 
 # Run the simulation
 total_time = measure_45_minutes()
 print(f"Total time measured: {total_time} minutes")

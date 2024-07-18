@@ -16,22 +16,46 @@ def water_jug_riddle():
     # Initialize the Jugs.
     jug_3 = 0
     jug_5 = 0
-    jug_3 = 0
-    steps.append((jug_3, jug_5)) # Empty the 3-Gallon jug
 
-    jug_5, jug_3 = pour(jug_5, jug_3, 3)
-    steps.append((jug_3, jug_5)) # Pour the remaining 2 gallons from the 5-gallon jug into the 3-gallon jug
+    # Steps to measure exactly 4 gallons using the jugs
+    steps = []
 
-    jug_5 = 5
-    steps.append((jug_3, jug_5)) ## Fill the 5 gallon jug again
+    # Step 1: Fill the 3-gallon jug
+    jug_3 = 3
+    steps.append((jug_5, jug_3)) # Empty the 3-Gallon jug
 
-    jug_5, jug_3 = pour(jug_5, jug_3, 3)
-    steps.append((jug_3, jug_5)) # Pour from the 5-gallon jug into the 3-gallon jug until it is full
+    # Step 2: Pour the 3-gallon jug into the 5-gallon jug
+    jug_3, jug_5 = pour(jug_3, jug_5, 5)
+    steps.append((jug_3, jug_5)) 
+
+    # Step 3: Fill the 3-gallon jug again
+    jug_3 = 3
+    steps.append((jug_5, jug_3)) 
+
+    # Step 4: Pour water from the 3-gallon jug into the 5-gallon jug until the 5-gallon jug is full
+    jug_3, jug_5 = pour(jug_3, jug_5, 5)
+    steps.append((jug_5, jug_3)) 
+
+    # Step 5: Empty the 5-gallon jug
+    jug_5 = 0
+    steps.append((jug_5, jug_3))
+
+    # Step 6: Pour the remaining 1 gallon from the 3-gallon jug into the 5-gallon jug
+    jug_3, jug_5 = pour(jug_3, jug_5, 5)
+    steps.append((jug_5, jug_3))
+
+    # Step 7: Fill the 3-gallon jug again
+    jug_3 = 3
+    steps.append((jug_5, jug_3))
+
+    # Step 8: Pour all 3 gallons from the 3-gallon jug into the 5-gallon jug
+    jug_3, jug_5 = pour(jug_3, jug_5, 5)
+    steps.append((jug_5, jug_3))
 
     return steps
 
 
 # print the Steps
 steps = water_jug_riddle()
-for i, (jug_3, jug_5) in enumerate(steps):
-    print(f"Step {i + 1}: 3-gallon jug = {jug_3} gallons, 5-gallon jug ={jug_5} gallons")
+for step in steps:
+    print(f"5-gallon jug: {step[0]} gallons, 3-gallon jug: {step[1]} gallons")

@@ -23,7 +23,7 @@ def measure_45_minutes():
     # Light rope1 from both ends and rope2 from one end
     while not rope1.is_burned_out():
         time_elapsed += rope1.burn(30)  # Rope1 burns out in 30 minutes
-    
+        rope2.burn(30)
     # After rope1 burns out, light the other end of rope2
     if rope1.is_burned_out():
         time_elapsed += rope2.burn(15)  # Rope2 burns out in 15 more minutes
